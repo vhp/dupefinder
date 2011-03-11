@@ -11,6 +11,13 @@ import hashlib
 
 hashdict = {}
 
+def interactive():
+    interactive = raw_input("Handle files interactivly? [y/n] ")
+    if interactive in ['y','Y']
+        return True
+    else:
+        return False
+
 def output():
     for key in hashdict:
         if hashdict[key][1] > 1:
@@ -27,7 +34,7 @@ def create_dict(key, filename):
 
 def read_chunk(file_obj):
     while True:
-        chunk = file_obj.read(1024)
+        chunk = file_obj.read(1024)  #SHA512 Blocl Size 1024
         if not chunk:
             break
         yield chunk
