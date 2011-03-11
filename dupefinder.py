@@ -11,13 +11,6 @@ import hashlib
 
 hashdict = {}
 
-def interactive():
-    interactive = raw_input("Handle files interactivly? [y/n] ")
-    if interactive in ['y','Y']
-        return True
-    else:
-        return False
-
 def output():
     for key in hashdict:
         if hashdict[key][1] > 1:
