@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # 
-#   Author: Vincent Perricone <vhp aT lavabit.com>
+#   Author: Vincent Perricone <vhp lavabit.com>
 #   Date: 3/10/2011
 #   Title: Dupe Finder - Duplicate File Finder
 #   License: Released under "Simplified BSD License" see LICENSE file
@@ -27,7 +27,7 @@ def create_dict(key, filename):
 
 def read_chunk(file_obj):
     while True:
-        chunk = file_obj.read(1024)  #SHA512 Blocl Size 1024
+        chunk = file_obj.read(1024)  #SHA512 Block Size 1024
         if not chunk:
             break
         yield chunk
