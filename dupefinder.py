@@ -32,12 +32,12 @@ def read_chunk(file_obj):
             break
         yield chunk
     
-def hash_file(f):
+def hash_file(file_to_hash):
     sha512 = hashlib.sha512()
     try:
-        hashable = open(f, 'r')
+        hashable = open(file_to_hash, 'r')
     except IOError:
-        print("Could not properly open {0}").format(f)
+        print("Could not properly open {0}").format(file_to_hash)
     for chunk in read_chunk(hashable):
         sha512.update(chunk)
     return sha512.digest()
