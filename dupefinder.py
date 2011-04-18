@@ -14,9 +14,9 @@ hashdict = {}
 def output():
     for key in hashdict:
         if hashdict[key][1] > 1:
-            print("Matches: ")
+            print('Matches: ')
             for filename in hashdict[key][0]:
-                print("\t{0}").format(filename)
+                print('\t{0}').format(filename)
 
 def create_dict(key, filename):
     if key in hashdict:
@@ -37,7 +37,7 @@ def hash_file(file_to_hash):
     try:
         hashable = open(file_to_hash, 'r')
     except IOError:
-        print("Could not properly open {0}").format(file_to_hash)
+        print('Could not properly open {0}').format(file_to_hash)
     for chunk in read_chunk(hashable):
         sha512.update(chunk)
     return sha512.digest()
@@ -45,16 +45,16 @@ def hash_file(file_to_hash):
 def walkdirs(directory):
     for root, dirs, files in os.walk(directory):
         for f in files:
-            print("Working on: {0}").format(str(os.path.join(root,f)))
+            print('Working on: {0}').format(str(os.path.join(root,f)))
             create_dict(hash_file(os.path.join(root,f)),os.path.join(root,f))
     
 def main(directories):
     map(os.path.expanduser, directories)
-    for dirs in directories:
-        if os.path.isdir(dirs):
-            walkdirs(dirs);
+    for directory in directories:
+        if os.path.isdir(directory):
+            walkdirs(directory);
         else:
-            print("{0} invalid directory").format(dirs)
+            print('{0} invalid directory').format(directory)
     output()
 
 if __name__ == '__main__':
